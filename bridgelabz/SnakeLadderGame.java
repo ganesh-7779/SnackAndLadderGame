@@ -37,10 +37,25 @@ public class SnakeLadderGame {
 			}
 			if (pos < 0) {
 				pos = 0;
+				System.out.println(pos);
 				break;
 			}
-			System.out.println(pos);
-
+			if (pos == 100) {
+				System.out.println("Win !!");
+				break;
+			}
+			if (pos > 100) {
+				pos -= diceValue;
+				System.out.println("outside " + pos);
+				while (pos + diceValue != 100) 
+				{
+					diceValue = rollDice();
+				}
+				pos += diceValue;
+				System.out.println(pos + " Win !!");
+			}
+			System.out.println("End of loop Game");
+			
 		}
 	}
 
@@ -48,7 +63,7 @@ public class SnakeLadderGame {
 		System.out.println("Welcome to Snack And Ladder Game Programs");
 		rollDice();
 		option();
-
+		
 	}
 
 }
